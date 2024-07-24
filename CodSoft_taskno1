@@ -1,1 +1,69 @@
+import java.util.Random;
+import java.util.Scanner;
+class Guessnum
+{
+    public static void main(String[] args) 
+    {
+        boolean guessedCorrectly = false;
+        boolean playagain = true;
+        Scanner scan = new Scanner(System.in);
+        Random random=new Random();
 
+        double r = Math.random();
+        int ran =(int)(r * (100-1)) + 1;
+        while (playagain)
+        {
+            int attempt = 0;
+            System.out.println("WELCOME TO THE GUESSING GAME");
+
+            while (!guessedCorrectly && attempt < 5) 
+            {
+                System.out.print("Enter your guess (1-100): ");
+
+                int guess = scan.nextInt();
+                attempt++;
+
+                if (guess < ran) 
+                {
+                    System.out.println("Too low! Try again.");
+                } 
+                else if (guess > ran) 
+                {
+                    System.out.println("Too high! Try again.");
+                }
+                else 
+                {
+                    System.out.println("Congratulations! You guessed it right in " + attempt + " attempts.");
+
+                    break;
+                }
+
+                }
+            
+                System.out.println("your attempt : "+attempt);
+                if(attempt==1)
+        {
+            System.out.println("your score : excellent");
+        }
+        else if(attempt==2)
+        {
+            System.out.println("your score : very good");
+        }
+        else if(attempt==3)
+        {
+            System.out.println("your score : good");
+        }
+        else if(attempt>=4)
+        {
+            System.out.println("your score : better performance");
+        }
+    
+        System.out.print("Do you want to play again? (yes/no): ");
+
+        Scanner obj1 = new Scanner(System.in);
+            String playChoice = obj1.nextLine();
+            playagain = playChoice.equals("yes");
+        
+        }
+    }
+}
